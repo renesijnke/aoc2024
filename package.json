@@ -1,9 +1,23 @@
 {
-  "name": "aoc2024",
+  "name": "advent-of-code",
   "version": "1.0.0",
-  "description": "Advent of Code 2024",
-  "license": "MIT",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "aoc": "ts-node -e \"(async () => { const day = process.argv.slice(1); const { readInput } = await import('./src/utils/readInput'); const { part1, part2 } = await import('./src/' + day + '/solution.ts'); const input = readInput('' + day + ''); console.log('Part 1:', part1(input)); console.log('Part 2:', part2(input)); })()\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
   }
 }

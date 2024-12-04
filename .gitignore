@@ -2,4 +2,5 @@
 
 node_modules
 
-**/input*
+**/input.txt
+!**/input-test.txt
