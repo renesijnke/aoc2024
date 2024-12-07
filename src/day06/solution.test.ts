@@ -9,6 +9,6 @@ describe('Day 6', () => {
   });
 
   test('part 2', () => {
-    expect(part2(input)).toBe(0);
+    expect(part2(input)).toBe(6);
   });
 });
