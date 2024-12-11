@@ -32,7 +32,6 @@ const convertToMap = (rules: number[][]) => {
 
 export const part1 = (input: string): number => {
   const { orderingRules, updates } = convertToSections(input);
-
   const orderingMap = convertToMap(orderingRules);
 
   const validUpdates = updates.filter((update) => {
@@ -54,5 +53,36 @@ export const part1 = (input: string): number => {
 };
 
 export const part2 = (input: string): number => {
-  return 0
+  const { orderingRules, updates } = convertToSections(input);
+  const orderingMap = convertToMap(orderingRules);
+
+  const invalidUpdates = updates.filter((update) => {
+    for (let i = 0; i < update.length; i++) {
+      for (let j = i + 1; j < update.length; j++) {
+        const before = update[i];
+        const after = update[j];
+        if (orderingMap.get(after)?.has(before)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  })
+
+  for (let index = 0; index < invalidUpdates.length; index++) {
+    const update = invalidUpdates[index];
+    for (let i = 0; i < update.length; i++) {
+      for (let j = i + 1; j < update.length; j++) {
+        const before = update[i];
+        const after = update[j];
+        if (orderingMap.get(after)?.has(before)) {
+          update[i] = after;
+          update[j] = before;
+        }
+      }
+    }
+  }
+
+  const middlePages = invalidUpdates.map(update => update[Math.floor(update.length / 2)]);
+  return middlePages.reduce((total, pageNumber) => total + pageNumber, 0);
 };
