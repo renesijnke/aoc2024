@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "aoc": "ts-node -e \"(async () => { const day = process.argv.slice(1); const { readInput } = await import('./src/utils/readInput'); const { part1, part2 } = await import('./src/' + day + '/solution.ts'); const input = readInput('' + day + ''); console.log('Part 1:', part1(input)); console.log('Part 2:', part2(input)); })()\""
+    "aoc": "ts-node -e \"(async () => { const day = process.argv.slice(1); const { readInput } = await import('./src/utils/readInput'); const { part1, part2 } = await import('./src/' + day + '/solution.ts'); const input = readInput('' + day + ''); const part1start = performance.now(); const part1Result = part1(input); const part1end = performance.now(); console.log('Part 1:', part1Result, '====== perf', part1end - part1start, 'ms'); const part2start = performance.now(); const part2result = part2(input); const part2end = performance.now(); console.log('Part 2:', part2result, '====== perf', part2end - part2start, 'ms'); })()\""
   },
   "keywords": [],
   "author": "",
