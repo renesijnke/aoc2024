@@ -4,3 +4,5 @@ node_modules
 
 **/input.txt
 !**/input-test.txt
+
+template
