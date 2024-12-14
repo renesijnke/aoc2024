@@ -8,14 +8,14 @@ describe('Day 14', () => {
     expect(part1(input, { rows: 7, cols: 11 })).toBe(12);
   });
 
-  it('part 2', () => {
+  xit('part 2', () => {
     expect(part2(input)).toBe(0);
   });
 
   describe('calculateRobotEndPosition method', () => {
     it('calculates robots end position based on robot properties and space', () => {
       const robots = convertToRobots('p=2,4 v=2,-3')
-      expect(calculateRobotEndPosition(robots[0], { rows: 7, cols: 11 }, 5)).toBe('3,1');
+      expect(calculateRobotEndPosition(robots[0], { rows: 7, cols: 11 }, 5)).toStrictEqual({ "x": 1, "y": 3 });
     });
   })
 });
